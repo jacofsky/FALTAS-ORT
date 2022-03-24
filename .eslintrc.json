@@ -31,6 +31,12 @@
 		"semi": ["warn", "never"],
 		"react/prop-types": "off",
 		"linebreak-style": ["error", "windows"],
-		"quotes": ["error", "single"]
+		"quotes": ["error", "single"],
+		"react/function-component-definition": [
+			true,
+			{
+				"namedComponents": "arrow-function"
+			}
+		]
 	}
 }
