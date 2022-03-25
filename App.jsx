@@ -2,6 +2,9 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import CreateAccount from './src/Screens/CreateAccount'
 import Login from './src/Screens/Login'
+import { NativeBaseProvider } from "native-base";
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -14,8 +17,10 @@ const styles = StyleSheet.create({
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <Login />
-        </View>
+        <NativeBaseProvider>
+            <View style={styles.container}>
+                <Login />
+            </View> 
+        </NativeBaseProvider>
     )
 }
