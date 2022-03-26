@@ -1,26 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import CreateAccount from './src/Screens/CreateAccount'
-import Login from './src/Screens/Login'
 import { NativeBaseProvider } from "native-base";
+import { NavigationContainer } from '@react-navigation/native';
 
+import AccountNavigation from './src/Navigator/AccountNavigation'
 
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-})
 
 export default function App() {
     return (
-        <NativeBaseProvider>
-            <View style={styles.container}>
-                <Login />
-            </View> 
-        </NativeBaseProvider>
+        <NavigationContainer>
+            <NativeBaseProvider>
+                <AccountNavigation />            
+            </NativeBaseProvider>
+        </NavigationContainer>
     )
 }
