@@ -12,7 +12,14 @@
 		"@babel/preset-typescript"
 	],
 	"plugins": [
-		"@babel/plugin-proposal-private-property-in-object",
-		{ "loose": true }
+		["@babel/plugin-proposal-private-property-in-object",
+		{ "loose": true }],
+        ["module-resolver", {
+            "root": ["./src"],
+            "alias": {
+              "test": "./test",
+              "underscore": "lodash"
+            }
+          }]
 	]
 }
