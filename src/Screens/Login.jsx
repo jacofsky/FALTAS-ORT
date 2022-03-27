@@ -1,67 +1,49 @@
-import { StyleSheet, Text, SafeAreaView, TextInput, Button, View, Image } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5'
 import React from 'react'
-import { Box } from 'native-base'
-const styles = StyleSheet.create({
-
-    father_container:{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        
-    },
-    son_container:{
-        backgroundColor: '#039be5',
-        borderRadius: 40,
-        height: 900,
-    },
-    headline_one: {
-        color: 'white',
-        textAlign: 'center',
-        fontSize: 50,
-        marginBottom: 50
-    },
-    textinput:{
-        marginHorizontal: 90,
-        backgroundColor: 'white',
-        borderRadius: 5,
-        fontSize: 20,
-        marginBottom: 20
+import Icon from 'react-native-vector-icons/FontAwesome5'
+import { Input, Stack, Button, Center, Text, Divider, Image, Box } from 'native-base'
+import { useNavigation } from '@react-navigation/native'
 
 
-    },
-    tinyLogo: {
-        width: 220,
-        height: 220,
-      },
-})
 
 const Login = () => {
+
+    const navigation = useNavigation()
+
+    const goCreateAccount = () => {
+        navigation.navigate('CreateAccount')
+    }
+
+
     return (
-        <SafeAreaView style={styles.father_container}>
+        <Stack h="100%" space={10} safeArea>
 
-
-            <Image style={{width: 250, height: 150, marginHorizontal: 90, marginTop: 90}} source={require('../assets/OrtBanner.jpg')}/>
+            <Center marginTop={20}>
+                <Image w="260" h="150" source={require('../assets/OrtBanner.jpg')} alt="Ort logo"/>
+            </Center>
             
-            <Box style={styles.son_container}>
-                <Text style={styles.headline_one}>LOGIN</Text>
-                <TextInput placeholder='Nombre' style={styles.textinput}/>
-                <TextInput placeholder='Contraseña' style={styles.textinput}/>
+            <Stack space={5}>
+                <Stack space={5} >
+                    <Input _focus={{borderColor:"info.700"}} placeholder='Email' variant="filled" w="75%" mx="auto"/>
+                    <Input _focus={{borderColor:"info.700"}} placeholder='Contraseña' variant="filled" w="75%" mx="auto"/>
+                    <Button mx="20%" backgroundColor="info.700">Ingresa</Button>
+                </Stack>
 
-                <Button title='Entrar' />
+                <Box mx="20%">
+                    <Divider></Divider>
+                </Box>
 
-                <Text>— O —</Text>
+                <Stack space={2} mx="20%" >
 
-                <View>
-                    <Icon name='google' />
-                    <Text>Google</Text>
-                </View>
+                    
+                    <Button backgroundColor="info.700" leftIcon={<Icon color={'white'} name='google' />}>Ingresa con Google</Button>
 
-                <Button title='No tienes cuenta? Create una!' />
+                    <Button onPress={goCreateAccount} size="sm" mt={2} variant="link"><Text color="info.700" fontWeight="bold">No tienes cuenta? Create una!</Text></Button>
+                </Stack>
 
-            </Box>
 
-        </SafeAreaView>
+            </Stack>
+
+        </Stack>
     )
 }
 
